@@ -12,6 +12,9 @@
             gap: 16px; /* Расстояние между карточками */
             padding: 16px;
         }
+        .card{
+            height: 400px;
+        }
     </style>
     <title>агентства по аренде квартир</title>
     <header>
@@ -19,9 +22,9 @@
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
-                <li><a href="podpiska.html">Снять жильё</a></li>
-                <li><a href="podpiska-start.html">Бронирование</a></li>
-                <li><a href="revers.html">Связаться с поддержкой</a></li>
+                <li><a href="rent-house.html">Снять жильё</a></li>
+                <li><a href="booking.html">Бронирование</a></li>
+                <li><a href="support.html">Связаться с поддержкой</a></li>
                 <li id="profileLink" style="display: none;" class="dropdown">
                     <span id="usernameDisplay"></span>
                     <div class="dropdown-content">
@@ -37,42 +40,53 @@
         <div class="cards-container" id="cards-container"></div>
     </main>
     <footer>
-        <p>&copy; 2023 Суточная аренда</p>
+        <p>Суточная аренда</p>
     </footer>
 
     <script>
-const cardsData = [
-            {
-                title: "./image 2.png",
-                duration: "Домик вблизи озера",
-                price: "6 000 ₽/ за сутки",
-                buttonText: "Позвонить",
-                buttonText2:"Забронировать"
-            },
-            {
-                title: "./image 2.png",
-                duration: "Домик вблизи озера",
-                price: "6 000 ₽/ за сутки",
-                buttonText: "Позвонить",
-                buttonText2:"Забронировать"
-            },
-            {
-                title: "./image 2.png",
-                duration: "Домик вблизи озера",
-                price: "6 000 ₽/ за сутки",
-                buttonText: "Позвонить",
-                buttonText2:"Забронировать"
-            },
 
+        const defaultCards = [
+            {
+                title: "./image 2.png",
+                duration: "Домик вблизи озера",
+                price: "6 000 ₽/ за сутки",
+                buttonText: "Позвонить",
+                buttonText2:"Забронировать"
+            },
+            {
+                title: "./image 2.png",
+                duration: "Домик вблизи озера",
+                price: "6 000 ₽/ за сутки",
+                buttonText: "Позвонить",
+                buttonText2:"Забронировать"
+            },
+            {
+                title: "./image 2.png",
+                duration: "Домик вблизи озера",
+                price: "6 000 ₽/ за сутки",
+                buttonText: "Позвонить",
+                buttonText2:"Забронировать"
+            },
         ];
 
-        const container = document.getElementById('cards-container');
 
-        cardsData.forEach(card => {
-            const cardElement = document.createElement('div');
-            cardElement.className = 'cardP';
 
-            cardElement.innerHTML = `
+
+
+
+
+ // Функция для отображения карточек
+ function displayCards() {
+            const cardsContainer = document.getElementById('cards-container');
+            const cardsData = JSON.parse(localStorage.getItem('cardsData')) || [];
+
+            cardsContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых карточек
+
+            cardsData.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+
+                cardElement.innerHTML = `
                 <div class= "imageOver">
                     <img src="${card.title}" alt="${card.title}"></img>
                 </div>
@@ -82,10 +96,14 @@ const cardsData = [
                 <a  href="podpiska-start.html"><button href="podpiska-start.html">${card.buttonText}</button></a>
                 <a  href="podpiska-start.html"><button href="podpiska-start.html">${card.buttonText2}</button></a>
                 </div>
-            `;
+                `;
 
-            container.appendChild(cardElement);
-        });
+                cardsContainer.appendChild(cardElement);
+            });
+        }
+
+        // Инициализация отображения карточек при загрузке страницы
+        document.addEventListener('DOMContentLoaded', displayCards);
     </script>
     </body>
 
