@@ -229,13 +229,12 @@ padding: 5px;
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 85px;
     transform: translateY(-50%);
     background-color: #2D2D2D;
     color: white;
     border: none;
     padding: 0;
-    top: 50%;
+    top: 250px;
     cursor: pointer;
     border-radius: 8px;
     
@@ -267,16 +266,11 @@ padding: 5px;
 
 .admin-container button {
     padding: 10px 20px;
-    background-color: #6E8B9D;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin: 5px;
-}
-
-.admin-container button:hover {
-    background-color: #6e8b9dbb;
 }
 
 .admin-link, .back-link {
