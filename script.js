@@ -34,8 +34,8 @@ function renderCards(sliderId, cards) {
                 <h1>${card.title}</h1>
                 <p>${card.price}</p>
                 <div class="button-container">
-                <a  href="podpiska-start.html"><button href="podpiska-start.html">${card.button1}</button></a>
-                <a  href="podpiska-start.html"><button href="podpiska-start.html">${card.button2}</button></a>
+                <a  href="booking.html"><button href="booking.html">${card.button1}</button></a>
+                <a  href="booking.html"><button href="booking.html">${card.button2}</button></a>
                 </div>
             `;
             slider.appendChild(cardElement);
